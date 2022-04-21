@@ -1,9 +1,10 @@
 # coding: utf-8
-# Michael Morton mykalmorton@gmail.com
+# Michael Morton mykalmorton@gmail.com (mykalmorton)
+import fire
 import csv
 from pathlib import Path
 
-# Loan amount
+# Loan amount in a list format
 
 loan_costs = [500, 600, 200, 1000, 450]
 
