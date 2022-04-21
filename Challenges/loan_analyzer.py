@@ -1,6 +1,6 @@
 # coding: utf-8
 # Michael Morton mykalmorton@gmail.com (mykalmorton)
-import fire
+#import fire
 import csv
 from pathlib import Path
 
