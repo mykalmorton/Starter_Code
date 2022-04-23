@@ -238,9 +238,12 @@ inexpensive_loans = []
 
 
 for key in loans:
-    list_of_loans = key["loan_price"]
+    list_of_loans = key['loan_price']
     if list_of_loans <= 500:
         inexpensive_loans.append(list_of_loans)
+        
+
+        
     
 
 
