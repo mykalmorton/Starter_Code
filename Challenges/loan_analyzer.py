@@ -4,6 +4,32 @@
 import csv
 from pathlib import Path
 
+''' Customized code to clear my screen before i run my script, not part of the lesson, it is here for me to see
+a clean screen vvv '''
+
+import os
+from time import sleep
+
+
+def clear_screen():
+
+    # It is for MacOS and Linux(here, os.name is 'posix')
+    if os.name == 'posix':
+        _ = os.system('clear')
+    else:
+        # It is for Windows platfrom
+        _ = os.system('cls')
+
+
+# wait for 2 seconds to clear screen
+sleep(2)
+
+# Calling the clear_screen() function
+clear_screen()
+
+
+# end of customized code ^^^ not part of lesson
+
 # Loan amount in a list format
 
 loan_costs = [500, 600, 200, 1000, 450]
@@ -14,7 +40,7 @@ loan_costs = [500, 600, 200, 1000, 450]
 # YOUR CODE HERE!
 
 total_number_of_loans = len(loan_costs)
-print(total_number_of_loans)
+print(f"Here are the number of loans {total_number_of_loans}")
 
 
 # What is the total of all loans?
@@ -23,7 +49,7 @@ print(total_number_of_loans)
 # YOUR CODE HERE!
 
 total_of_all_loans = sum(loan_costs)
-print(total_of_all_loans)
+print(f"the total value of the loans is: ${total_of_all_loans}")
 
 # What is the average loan amount from the list?
 # @TODO: Using the sum of all loans and the total number of loans, calculate the average loan price.
@@ -210,18 +236,18 @@ inexpensive_loans = []
 # @TODO: Loop through all the loans and append any that cost $500 or less to the `inexpensive_loans` list
 # YOUR CODE HERE!
 
+
 for key in loans:
-    find_inexpensive_loans = key
-    list_of_inexpensive_loans = (find_inexpensive_loans.get('loan_price'))
-    if list_of_inexpensive_loans <= 500:
-        loans.append(list_of_inexpensive_loans)
-        
+    list_of_loans = key["loan_price"]
+    if list_of_loans <= 500:
+        inexpensive_loans.append(list_of_loans)
     
+
 
 # @TODO: Print the `inexpensive_loans` list
 # YOUR CODE HERE!
 
-        print(f"Here is the inexpensive list {list_of_inexpensive_loans}")
+print(f"Here is the inexpensive list {inexpensive_loans}")
 
 
 
@@ -250,3 +276,13 @@ output_path = Path("inexpensive_loans.csv")
 # @TODO: Use the csv library and `csv.writer` to write the header row
 # and each row of `loan.values()` from the `inexpensive_loans` list.
 # YOUR CODE HERE!
+
+with open(output_path , 'w', newline='') as output_path:
+    csvwriter = csv.writer(output_path)
+
+    # Write our header row first!
+    csvwriter.writerow(header)
+
+    # Then we can write the data rows
+    for row in inexpensive_loans:
+        csvwriter.writerow(inexpensive_loans)
