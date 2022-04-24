@@ -133,7 +133,7 @@ print(f"The present value is ${present_loan_price}")
 costs = (loan.get('loan_price'))
 #costs = 100
 
-print(present_loan_price, total_of_all_loans, costs)
+# print(present_loan_price, total_of_all_loans, costs)
 if present_loan_price >= costs:
     print("loan is worth at least the cost to buy it.")   
 else:
@@ -241,6 +241,8 @@ for key in loans:
     list_of_loans = key['loan_price']
     if list_of_loans <= 500:
         inexpensive_loans.append(list_of_loans)
+        
+        
         
 
         
